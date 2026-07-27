@@ -31,7 +31,30 @@
 # - The main block must call the function and print the result.
 #
 
-# =============================================================================
-# YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
-# =============================================================================
+def is_prime(number):
+    """Return True if `number` is a prime number, False otherwise."""
+    # Numbers less than 2 are never prime.
+    if number < 2:
+        return False
 
+    # A number only needs to be tested for divisors up to its square root:
+    # if it had a factor larger than that, it would also have a matching
+    # factor smaller than the square root, so we'd have found it already.
+    for divisor in range(2, int(number ** 0.5) + 1):
+        if number % divisor == 0:
+            return False
+
+    return True
+
+
+def main():
+    number = int(input("Enter a number: "))
+
+    if is_prime(number):
+        print(f"{number} is a prime number.")
+    else:
+        print(f"{number} is NOT a prime number.")
+
+
+if __name__ == "__main__":
+    main()
