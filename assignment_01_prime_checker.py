@@ -37,9 +37,6 @@ def is_prime(number):
     if number < 2:
         return False
 
-    # A number only needs to be tested for divisors up to its square root:
-    # if it had a factor larger than that, it would also have a matching
-    # factor smaller than the square root, so we'd have found it already.
     for divisor in range(2, int(number ** 0.5) + 1):
         if number % divisor == 0:
             return False
